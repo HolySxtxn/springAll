@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .table {
+            width: 100%;
+            border: none;
+            margin-bottom: 20px;
+        }
+        th {
+            color: ff0000;
+        }
+        td {
+            color: white;
+        }
+        .table thead th {
+            font-weight: bold;
+            text-align: center;
+            border: none;
+            padding: 10px 15px;
+            background: #ff0000;
+            font-size: 14px;
+        }
+
+        .table tbody td {
+            font-weight: bold;
+            text-align: center;
+            border: none;
+            padding: 10px 15px;
+            font-size: 14px;
+            vertical-align: top;
+        }
+        .table tbody tr:nth-child(even){
+            background: #0000ff;
+        }
+
+         a:link, a:visited {
+             background-color: white;
+             color: #d8d8d8;
+             border: 2px solid #f8f32b;
+             padding: 10px 20px;
+             text-align: center;
+             text-decoration: none;
+             display: inline-block;
+         }
+
+        a:hover, a:active {
+            background-color: #f8f32b;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<a href="/main">Назад</a>
+<br>
+<br>
+<table class="table">
+    <tr>
+        <th>№</th>
+        <th>Логин</th>
+        <th>Возраст</th>
+        <th>О себе</th>
+        <th>Ссылка на диск</th>
+        <th>Часы работы</th>
+    </tr>
+    <tr>
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.nick}"></td>
+        <td th:text="${user.age}"></td>
+        <td th:text="${user.aboutMe}"></td>
+        <td th:text="${user.git}"></td>
+        <td th:text="${user.workHours}"></td>
+    </tr>
+</table>
+</body>
+</html>

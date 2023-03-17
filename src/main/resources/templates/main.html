@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Выход"/>
+</form>
+<br>
+    <form method="get" action="filterExact">
+        <label>
+            <input type="text" name="filter">
+        </label>
+        <button type="submit">Найти</button>
+    </form>
+    <br>
+    <form method="get" action="filterInaccurate">
+        <label>
+            <input type="text" name="filter">
+        </label>
+        <button type="submit">Найти примерно</button>
+    </form>
+    <br>
+    <table>
+        <tr>
+            <th>№</th>
+            <th>Логин</th>
+            <th>Возраст</th>
+            <th>О себе</th>
+            <th>Ссылка на диск</th>
+            <th>Часы работы</th>
+        </tr>
+        <tr th:each="item: ${users}">
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.nick}"></td>
+            <td th:text="${item.age}"></td>
+            <td th:text="${item.aboutMe}"></td>
+            <td th:text="${item.git}"></td>
+            <td th:text="${item.workHours}"></td>
+            <td>
+                <a th:href="'/edit/' + ${item.id}">Изменить</a>
+                <a th:href="'/delete/' + ${item.id}">Удалить</a>
+                <a th:href="'/details/' + ${item.id}">Подробнее</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
